@@ -7,12 +7,11 @@
 ![RKE2](https://img.shields.io/badge/RKE2-Production-FF6C37)
 ![Ubuntu](https://img.shields.io/badge/Ubuntu-24.04-E95420?logo=ubuntu&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Stars](https://img.shields.io/github/stars/ahmetnuri/rancher-production-guide?style=social)
 
 **Production-ready Rancher Management Server with High Availability**  
 *Lessons learned from managing 8+ Kubernetes clusters in production*
 
-[🚀 Quick Start](#-quick-start) • [📖 Documentation](#-documentation) • [🏗️ Architecture](#️-architecture) • [⭐ Star Us](#)
+[🚀 Quick Start](#-quick-start) • [📖 Documentation](#-documentation) • [🏗️ Architecture](#️-architecture) • [⭐ Star](#)
 
 </div>
 
@@ -121,7 +120,7 @@ This comprehensive guide provides battle-tested instructions for deploying Ranch
 - Root or sudo access
 - Internet connectivity (for package downloads)
 - DNS resolution configured
-- Firewall ports open (see [Network Requirements](docs/NETWORK.md))
+- Firewall ports configured
 
 ### Network Requirements
 
@@ -141,7 +140,7 @@ This comprehensive guide provides battle-tested instructions for deploying Ranch
 
 ```bash
 # Clone the repository
-git clone https://github.com/ahmetnuri/rancher-production-guide.git
+git clone https://github.com/ahmetnuri-cetin/rancher-production-guide.git
 cd rancher-production-guide
 
 # Run installation script
@@ -151,48 +150,23 @@ sudo ./scripts/install-rancher.sh
 
 Installation completes in **~15 minutes**.
 
-### HA Setup (Production)
-
-```bash
-# On all 3 nodes, run:
-chmod +x scripts/install-rke2-ha.sh
-sudo ./scripts/install-rke2-ha.sh
-
-# On first node only:
-sudo ./scripts/install-rancher-ha.sh
-```
-
-Installation completes in **~45 minutes**.
-
 ---
 
 ## 📖 Documentation
 
-### Getting Started
-- [Installation Guide](docs/INSTALLATION.md) - Step-by-step single-node setup
-- [HA Deployment](docs/HA-SETUP.md) - 3-node High Availability setup
-- [Load Balancer Config](docs/LOAD-BALANCER.md) - HAProxy and NGINX examples
+### Available Guides
 
-### Operations
-- [Backup & Restore](docs/BACKUP.md) - Automated backup strategies
-- [Monitoring Setup](docs/MONITORING.md) - Prometheus and Grafana integration
-- [Upgrading Rancher](docs/UPGRADE.md) - Safe upgrade procedures
+- [**Installation Guide**](INSTALLATION.md) - Complete step-by-step installation with terminal outputs
+- [**Command Cheatsheet**](CHEATSHEET.md) - Quick reference for common commands
+- [**Installation Script**](scripts/install-rancher.sh) - Automated installation script
 
-### Security
-- [Security Hardening](docs/SECURITY.md) - SSL/TLS, RBAC, policies
-- [Network Policies](docs/NETWORK-POLICIES.md) - Cluster isolation
-- [Certificate Management](docs/CERTIFICATES.md) - Let's Encrypt integration
+### Coming Soon
 
-### Advanced Topics
-- [Multi-Cluster Management](docs/MULTI-CLUSTER.md) - Managing 8+ clusters
-- [GitOps with Fleet](docs/GITOPS.md) - Git-based deployments
-- [Disaster Recovery](docs/DISASTER-RECOVERY.md) - Recovery procedures
-- [Performance Tuning](docs/PERFORMANCE.md) - Optimization tips
-
-### Troubleshooting
-- [Common Issues](docs/TROUBLESHOOTING.md) - Real-world problems and solutions
-- [Debug Commands](docs/DEBUG.md) - Useful commands for debugging
-- [FAQ](docs/FAQ.md) - Frequently asked questions
+- HA Deployment Guide
+- Backup & Restore Strategies
+- Monitoring Setup with Prometheus/Grafana
+- Multi-Cluster Management Best Practices
+- Security Hardening Guide
 
 ---
 
@@ -234,8 +208,6 @@ Managing 8+ production Kubernetes clusters taught us valuable lessons:
 5. **Use External Database**  
    RKE2's embedded etcd is stable. External MySQL/PostgreSQL adds complexity.
 
-[Read full lessons learned →](docs/LESSONS-LEARNED.md)
-
 ---
 
 ## 🔧 Command Cheatsheet
@@ -262,7 +234,7 @@ sudo rke2 etcd-snapshot save --name manual-backup-$(date +%Y%m%d)
 kubectl logs -n cattle-system -l app=rancher -f
 ```
 
-[Full command reference →](docs/CHEATSHEET.md)
+[Full command reference →](CHEATSHEET.md)
 
 ---
 
@@ -275,22 +247,7 @@ Contributions are welcome! Whether it's:
 - ✨ Feature requests
 - 💡 Best practice suggestions
 
-Please read our [Contributing Guide](CONTRIBUTING.md) before submitting PRs.
-
-### Contributors
-
-Thanks to these wonderful people:
-
-<!-- ALL-CONTRIBUTORS-LIST:START -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
----
-
-## 📊 Project Stats
-
-![GitHub last commit](https://img.shields.io/github/last-commit/ahmetnuri/rancher-production-guide)
-![GitHub issues](https://img.shields.io/github/issues/ahmetnuri/rancher-production-guide)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/ahmetnuri/rancher-production-guide)
+Feel free to open an issue or submit a pull request!
 
 ---
 
@@ -307,10 +264,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Infrastructure & DevOps Specialist  
 *2+ years managing production Kubernetes clusters*
 
-- 📧 Email: ahmet.cetin@example.com
-- 💼 LinkedIn: [linkedin.com/in/ahmetnuri](https://linkedin.com/in/ahmetnuri)
-- 🐙 GitHub: [@ahmetnuri](https://github.com/ahmetnuri)
-- 📝 Blog: [yourblog.com](https://yourblog.com)
+- 📧 Email: ahmetnuricetin@outlook.com
+- 💼 LinkedIn: [linkedin.com/in/ahmet-nuri-cetin](https://www.linkedin.com/in/ahmet-nuri-cetin)
+- 🐙 GitHub: [@ahmetnuri-cetin](https://github.com/ahmetnuri-cetin)
 
 ---
 
@@ -320,12 +276,6 @@ Infrastructure & DevOps Specialist
 - [RKE2](https://docs.rke2.io/) - For secure Kubernetes
 - [CNCF](https://www.cncf.io/) - For the ecosystem
 - Community contributors - For valuable feedback
-
----
-
-## ⭐ Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=ahmetnuri/rancher-production-guide&type=Date)](https://star-history.com/#ahmetnuri/rancher-production-guide&Date)
 
 ---
 
